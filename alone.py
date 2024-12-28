@@ -119,7 +119,7 @@ def approve_or_disapprove_user(message):
     plan = int(cmd_parts[2]) if len(cmd_parts) >= 3 else 0
     days = int(cmd_parts[3]) if len(cmd_parts) >= 4 else 0
 
-    if action == '/add':
+    if action == '/approve':
         if plan == 1:  # Instant Plan 🧡
             if users_collection.count_documents({"plan": 1}) >= 99:
                 bot.send_message(chat_id, "*🚫 Approval Failed: Instant Plan 🧡 limit reached (99 users).*", parse_mode='Markdown')
@@ -200,7 +200,7 @@ def process_attack_command(message):
         if len(args) != 3:
             bot.send_message(message.chat.id, "*❗ ERROR!*\n"  # Error message
                                                "*CHUTIYA HAI KYA SAHI SE LAGA.*\n"  # Correct format message
-                                               "*MAKE SURE <IP> <PORT> <DURATION> 🔄*", parse_mode='Markdown')  # Three inputs message
+                                               "**", parse_mode='Markdown')  # Three inputs message
             return
 
         target_ip, target_port, duration = args[0], int(args[1]), int(args[2])
@@ -211,7 +211,7 @@ def process_attack_command(message):
             return
         if duration >= 150:
             bot.send_message(message.chat.id, "*⏳ MAXIMUM DURATION IS 149 SECONDS.*\n"  # Duration limit message
-                                               "*PLEASE SHORTEN THE DURATION AND TRY AGAIN!*", parse_mode='Markdown')  # Shorten duration message
+                                               "**", parse_mode='Markdown')  # Shorten duration message
             return  
 
         bot.attack_in_progress = True  # Mark that an attack is in progress
@@ -245,7 +245,7 @@ def when_command(message):
 
         if remaining_time > 0:
             bot.send_message(chat_id, f"*⏳ TIME REMAINING: {int(remaining_time)} seconds...*\n"
-                                       "* ‼️RUK JA RE LAUDE*", parse_mode='Markdown')
+                                       "**", parse_mode='Markdown')
         else:
             bot.send_message(chat_id, "*🍆 ATTACK COMPLETED*\n"
                                        "*👙 FUCK THE GAME NOW*", parse_mode='Markdown')
@@ -304,7 +304,7 @@ def help_command(message):
                  "3. *`/owner` - FOR BOT OWNER*\n"
                  "4. *`/when` - FOR REMAINING TIME*\n"
                  "6. *`/rules` - FOR USE RULE.*\n\n"
-                 "*👍 THANKS FOR CHECK COMMANDS*")
+                 "**")
 
     try:
         bot.send_message(message.chat.id, help_text, parse_mode='Markdown')
@@ -324,13 +324,13 @@ def owner_command(message):
 @bot.message_handler(commands=['start'])
 def start_message(message):
     try:
-        bot.send_message(message.chat.id, "*🔰 WELCOME TO DDOS WORLD!* 🔰\n"
-                                           "* GET READY TO DIVE INTO THE ACTION!*\n"
-                                           "* TO UNLEASH YOUR POWER, USE THE* `/attack` *COMMAND FOLLOWED BY YOUR TARGET'S IP AND PORT.* ⚔️\n"
-                                           "*🔍 EXAMPLE: AFTER* `/attack`, *ENTER:* `IP PORT DURATION`.\n"
-                                           "*🔥 ENSURE YOUR TARGET IS LOCKED IN BEFORE YOU STRIKE!*\n"
-                                           "*📚 NEW AROUND HERE? CHECK OUT THE* `/help` *COMMAND TO DISCOVER ALL MY CAPABILITIES.* 📜\n"
-                                           "*⚠️ REMEMBER, WITH GREAT POWER COMES GREAT RESPONSIBILITY! USE IT WISELY... OR LET THE CHAOS REIGN!* 😈💥", 
+        bot.send_message(message.chat.id, "*🔰 WELCOME TO GODxCHEATS DDOS *🔰\n"
+                                           "*GET READY TO DIVE INTO THE ACTION!*\n"
+                                           "*TO UNLEASH YOUR POWER, USE THE* `/attack` *COMMAND FOLLOWED BY YOUR TARGET'S IP AND PORT.* ⚔️\n"
+                                           "*EXAMPLE: AFTER* `/attack`, *ENTER:* `IP PORT DURATION`.\n"
+                                           "*ENSURE YOUR TARGET IS LOCKED IN BEFORE YOU STRIKE!*\n"
+                                           "*NEW AROUND HERE? CHECK OUT THE* `/help` *COMMAND TO DISCOVER ALL MY CAPABILITIES.* \n"
+                                           "* REMEMBER, WITH GREAT POWER COMES GREAT RESPONSIBILITY! USE IT WISELY... OR LET THE CHAOS REIGN!*", 
                                            parse_mode='Markdown')
     except Exception as e:
         print(f"Error while processing /start command: {e}")
