@@ -18,9 +18,9 @@ loop = asyncio.get_event_loop()
 
 TOKEN = '8160560841:AAFMXzS4yhXU7FcQpJyBcI9WKy_L-wFJGtY'
 MONGO_URI = 'mongodb+srv://Bishal:Bishal@bishal.dffybpx.mongodb.net/?retryWrites=true&w=majority&appName=Bishal'
-FORWARD_CHANNEL_ID = 1662672529
-CHANNEL_ID = 1662672529
-error_channel_id = 1662672529
+FORWARD_CHANNEL_ID = -1002454001063
+CHANNEL_ID = -1002454001063
+error_channel_id = -1002454001063
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
@@ -324,9 +324,13 @@ def owner_command(message):
 @bot.message_handler(commands=['start'])
 def start_message(message):
     try:
-        bot.send_message(message.chat.id, "*🔰 WELCOME TO GODxCHEATS DDOS*🔰\n\n"
-                                           "* GET READY TO DIVE INTO THE ACTION!\n\n"
-                                           "*😈 DM :- @GODxAloneBOY* 😈", 
+        bot.send_message(message.chat.id, "*🔰 WELCOME TO DDOS WORLD!* 🔰\n"
+                                           "* GET READY TO DIVE INTO THE ACTION!*\n"
+                                           "* TO UNLEASH YOUR POWER, USE THE* `/attack` *COMMAND FOLLOWED BY YOUR TARGET'S IP AND PORT.* ⚔️\n"
+                                           "*🔍 EXAMPLE: AFTER* `/attack`, *ENTER:* `IP PORT DURATION`.\n"
+                                           "*🔥 ENSURE YOUR TARGET IS LOCKED IN BEFORE YOU STRIKE!*\n"
+                                           "*📚 NEW AROUND HERE? CHECK OUT THE* `/help` *COMMAND TO DISCOVER ALL MY CAPABILITIES.* 📜\n"
+                                           "*⚠️ REMEMBER, WITH GREAT POWER COMES GREAT RESPONSIBILITY! USE IT WISELY... OR LET THE CHAOS REIGN!* 😈💥", 
                                            parse_mode='Markdown')
     except Exception as e:
         print(f"Error while processing /start command: {e}")
